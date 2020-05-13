@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Weather</title>
+    <link rel="stylesheet" href="./vendor/css/photon.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="./index.css" media="screen" charset="utf-8">
+    <script charset="utf-8">require('./index')</script>
+  </head>
+  <body>
+    <div class="header-arrow"></div>
+    <div class="window">
+
+      <div class="window-content">
+        <div class="pane">
+
+          <div class="summary js-summary">Loading&hellip;</div>
+          <div style="width: 100%; margin: auto; text-align: center;" class="description">Unix Time</div>
+
+          <div style="margin-left: 0.5rem; margin-right: 0.5rem">
+            <div class="column">
+              <div id="localTime" class="smallReading js-localDateTime">&nbsp;</div>
+              <div class="description">LOCAL TIME</div>
+            </div>
+            <div class="column">
+              &nbsp;
+            </div>
+            <div class="column">
+              <div class="smallReading js-utcDateTime">&nbsp;</div>
+              <div class="description">UTC TIME</div>
+            </div>
+          </div>
+
+          <div style="margin-left: 1rem; margin-right: 1rem">
+            <div class="column">
+              <input id="year" type="text" class="form-control" placeholder="Year" />
+            </div>
+            <div class="column">
+              <input id="month" type="text" class="form-control" placeholder="Month" />
+            </div>
+            <div class="column">
+              <input id="day" type="text" class="form-control" placeholder="Day" />
+            </div>
+          </div>
+          <div style="margin-left: 1rem; margin-right: 1rem;">
+            <div class="column">
+                <input id="hour" type="text" class="form-control" placeholder="Hour" />
+            </div>
+            <div class="column">
+                <input id="minute" type="text" class="form-control" placeholder="Minute" />
+            </div>                
+            <div class="column">
+                <input id="second" type="text" class="form-control" placeholder="Second" />
+            </div>
+          </div>
+
+          <div>
+            <div id="convertEpoch" class="summary">&hellip;&nbsp;</div>
+            <div style="width: 100%; margin: auto; text-align: center;" class="description">Converted Epoch Time</div>
+          </div>
+
+        </div>
+      </div>
+
+      <footer class="toolbar toolbar-footer">
+
+        <div class="footer-link">
+          Powered by <a href="https://mysticcoders.com">Mystic</a>
+        </div>
+
+        <div class="toolbar-actions pull-right">
+          <div class="btn-group">
+            <button class="btn btn-default js-quit-action">
+              <span class="icon icon-cancel js-quit-action" title="Quit"></span>
+            </button>
+          </div>
+        </div>
+
+      </footer>
+    </div>
+  </body>
+</html>

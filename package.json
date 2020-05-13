@@ -1,0 +1,29 @@
+{
+  "name": "mysticmillis",
+  "productName": "Mystic Millis",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "ISC",
+  "author": "Andrew Lombardi",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager ./ --platform=darwin --arch=x64 --out=out --icon=./icon.icns --overwrite",
+    "upgrade-interactive": "npm-check -u"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mysticcoders/mysticmillis.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mysticcoders/mysticmillis/issues"
+  },
+  "homepage": "https://github.com/mysticcoders/mysticmillis#readme",
+  "devDependencies": {
+    "electron-packager": "^14.2.1",
+    "electron-prebuilt": "^1.2.7"
+  },
+  "dependencies": {
+    "moment": "^2.25.3",
+    "npm-check": "^5.9.2"
+  }
+}
