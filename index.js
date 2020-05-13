@@ -15,6 +15,8 @@ document.addEventListener('click', (event) => {
     event.preventDefault()
   } else if (event.target.classList.contains('js-summary')) {
     clipboard.writeText(''+now.valueOf(), 'selection')
+  } else if (event.target.classList.contains('js-epochTime')) {
+    clipboard.writeText(''+userEntered.valueOf(), 'selection')
   } else if (event.target.classList.contains('js-quit-action')) {
     window.close()
   } else if(event.target.id === 'localTime') {
@@ -35,30 +37,66 @@ const getGeoLocation = () => {
   })
 }
 
+const dateTimeFormat = 'MMMM Do YYYY hh:mm:ss a'
+
+const isNumberElementAndExist = (id) => {
+  return document.getElementById(id) && document.getElementById(id).value !== '' && !isNaN(document.getElementById(id).value)  
+}
+
+const getNumberElement = (id, numberDefault = 0, zeroIndexed = false) => {
+  return isNumberElementAndExist(id) ? zeroIndexed ? Number(document.getElementById(id).value) - 1 : Number(document.getElementById(id).value) : numberDefault
+}
+
 const updateView = () => {
   now = moment()
   utcNow = moment.utc()
 
   const millisTime = now.valueOf()
 
-  const localDateTime = now.format('MMMM Do YYYY h:mm:ss a')
-  const utcDateTime = utcNow.format('MMMM Do YYYY h:mm:ss a')
+  const localDateTime = now.format(dateTimeFormat)
+  const utcDateTime = utcNow.format(dateTimeFormat)
 
   document.querySelector('.js-summary').textContent = millisTime
   document.querySelector('.js-localDateTime').textContent = localDateTime
   document.querySelector('.js-utcDateTime').textContent = utcDateTime
 
-  let newTime = moment()
+  userEntered = moment()
 
-  newTime.set('year', document.getElementById('year').value !== '' ? document.getElementById('year').value : 1970)
-  newTime.set('month', document.getElementById('month').value !== '' ? document.getElementById('month').value : 1)
-  newTime.set('date', document.getElementById('day').value !== '' ? document.getElementById('day').value : 1)
-  newTime.set('hour', document.getElementById('hour').value !== '' ? document.getElementById('hour').value : 1)
-  newTime.set('minute', document.getElementById('minute').value !== '' ? document.getElementById('minute').value : 1)
-  newTime.set('second', document.getElementById('second').value !== '' ? document.getElementById('second').value : 1)
-  newTime.set('millisecond', 0)
+  const customDateEntered = isNumberElementAndExist('year') ||
+                            isNumberElementAndExist('month') ||
+                            isNumberElementAndExist('date') ||
+                            isNumberElementAndExist('hour') ||
+                            isNumberElementAndExist('minute') ||
+                            isNumberElementAndExist('second')
+    
+  if(customDateEntered && document.getElementById('convertEpoch').value === '') {
 
-  document.getElementById('convertEpoch').textContent = newTime.valueOf()
+    userEntered.set('year', getNumberElement('year', 1970))
+    userEntered.set('month', getNumberElement('month', 0, true))
+    userEntered.set('date', getNumberElement('day', 0))
+    userEntered.set('hour', getNumberElement('hour', 0))
+    userEntered.set('minute', getNumberElement('minute', 0))
+    userEntered.set('second', getNumberElement('second', 0))
+    userEntered.set('millisecond', 0)
+  
+    const epochLocalDateTime = userEntered.format(dateTimeFormat)
+    const epochUtcDateTime = userEntered.utc().format(dateTimeFormat)
+    document.querySelector('.js-epochLocalDateTime').textContent = epochLocalDateTime
+    document.querySelector('.js-epochUtcDateTime').textContent = epochUtcDateTime
+
+    document.querySelector('.js-epochTime').textContent = userEntered.valueOf()  
+  } else if(document.getElementById('convertEpoch').value !== '') {
+
+    if(!isNaN(document.getElementById('convertEpoch').value)) {
+      const convertEpoch = moment(Number(document.getElementById('convertEpoch').value))
+      const epochLocalDateTime = convertEpoch.format(dateTimeFormat)
+      const epochUtcDateTime = convertEpoch.utc().format(dateTimeFormat)
+      document.querySelector('.js-epochLocalDateTime').textContent = epochLocalDateTime
+      document.querySelector('.js-epochUtcDateTime').textContent = epochUtcDateTime
+
+      document.querySelector('.js-epochTime').textContent = convertEpoch.valueOf()
+    }
+  }
 
 }
 

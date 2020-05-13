@@ -18,18 +18,17 @@
           <div style="width: 100%; margin: auto; text-align: center;" class="description">Unix Time</div>
 
           <div style="margin-left: 0.5rem; margin-right: 0.5rem">
-            <div class="column">
+            <div class="column50">
               <div id="localTime" class="smallReading js-localDateTime">&nbsp;</div>
               <div class="description">LOCAL TIME</div>
             </div>
-            <div class="column">
-              &nbsp;
-            </div>
-            <div class="column">
+            <div class="column50">
               <div class="smallReading js-utcDateTime">&nbsp;</div>
               <div class="description">UTC TIME</div>
             </div>
           </div>
+
+          <hr />
 
           <div style="margin-left: 1rem; margin-right: 1rem">
             <div class="column">
@@ -39,7 +38,7 @@
               <input id="month" type="text" class="form-control" placeholder="Month" />
             </div>
             <div class="column">
-              <input id="day" type="text" class="form-control" placeholder="Day" />
+              <input id="day" type= "text" class="form-control" placeholder="Day" />
             </div>
           </div>
           <div style="margin-left: 1rem; margin-right: 1rem;">
@@ -54,9 +53,22 @@
             </div>
           </div>
 
-          <div>
-            <div id="convertEpoch" class="summary">&hellip;&nbsp;</div>
-            <div style="width: 100%; margin: auto; text-align: center;" class="description">Converted Epoch Time</div>
+          <div class="fullcolumn" style="margin-left: 1rem; margin-right: 1rem;">
+            <input id="convertEpoch" class="form-control" placeholder="Converted Epoch Time" />
+          </div>
+
+          <div class="summary js-epochTime">&hellip;</div>
+          <div style="width: 100%; margin: auto; text-align: center;" class="description">Converted Epoch Time</div>
+
+          <div style="margin-left: 0.5rem; margin-right: 0.5rem">
+            <div class="column50">
+              <div id="epochLocalTime" class="smallReading js-epochLocalDateTime">&nbsp;</div>
+              <div class="description">LOCAL TIME</div>
+            </div>
+            <div class="column50">
+              <div class="smallReading js-epochUtcDateTime">&nbsp;</div>
+              <div class="description">UTC TIME</div>
+            </div>
           </div>
 
         </div>

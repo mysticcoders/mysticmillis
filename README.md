@@ -2,7 +2,8 @@
 
 The framework of this copied from an example from @kevinsawicki (https://github.com/kevinsawicki/tray-example)
 
-Buil with [Electron](http://electron.atom.io).
+Built with [Electron](http://electron.atom.io).
+
 Built with [photon](http://photonkit.com).
 
 ## Running
@@ -18,7 +19,5 @@ npm start
 
 ```sh
 npm run package
-open out/Weathered-darwin-x64/Weathered.app
+open out/Mystic Millis-darwin-x64/Mystic Millis.app
 ```
-
-![screenshot](https://cloud.githubusercontent.com/assets/671378/15033544/97011f38-1220-11e6-9611-1571063fe107.png)

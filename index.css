@@ -45,6 +45,22 @@
   text-align: center;
 }
 
+.column50 {
+  width: 50%;
+  float: left;
+  margin: auto;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.fullcolumn {
+  width: 90%;
+  float: left;
+  margin: auto;
+  margin-top: 16px;
+  text-align: center;
+}
+
 .summary {
   width: 100%;
   margin: auto;
