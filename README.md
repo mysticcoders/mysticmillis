@@ -16,8 +16,20 @@ npm start
 ```
 
 ## Packaging
-
+By default we package as darwin.
 ```sh
 npm run package
 open out/Mystic Millis-darwin-x64/Mystic Millis.app
+```
+
+### Darwin
+```sh
+npm run package:darwin
+open out/Mystic Millis-darwin-x64/Mystic Millis.app
+```
+
+### Linux
+```sh
+npm run package:linux
+./out/Mystic Millis-linux-x64/Mystic Millis
 ```
