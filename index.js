@@ -19,13 +19,22 @@ document.addEventListener('click', (event) => {
     clipboard.writeText(''+userEntered.valueOf(), 'selection')
   } else if (event.target.classList.contains('js-quit-action')) {
     window.close()
+  } else if (event.target.classList.contains('js-clearFields-action')) {
+    document.getElementById('year').value = ''
+    document.getElementById('month').value = ''
+    document.getElementById('day').value = ''
+
+    document.getElementById('hour').value = ''
+    document.getElementById('minute').value = ''
+    document.getElementById('second').value = ''
+    document.getElementById('convertEpoch').value = ''
   } else if(event.target.id === 'localTime') {
     
     document.getElementById('year').value = now.format('YYYY')
     document.getElementById('month').value = now.format('MM')
     document.getElementById('day').value = now.format('DD')
 
-    document.getElementById('hour').value = now.format('hh')
+    document.getElementById('hour').value = now.format('HH')
     document.getElementById('minute').value = now.format('mm')
     document.getElementById('second').value = now.format('ss')
   }
@@ -37,7 +46,7 @@ const getGeoLocation = () => {
   })
 }
 
-const dateTimeFormat = 'MMMM Do YYYY hh:mm:ss a'
+const dateTimeFormat = 'MMMM Do YYYY HH:mm:ss a'
 
 const isNumberElementAndExist = (id) => {
   return document.getElementById(id) && document.getElementById(id).value !== '' && !isNaN(document.getElementById(id).value)  
