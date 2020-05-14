@@ -7,7 +7,9 @@
   "author": "Andrew Lombardi",
   "scripts": {
     "start": "electron .",
-    "package": "electron-packager ./ --platform=darwin --arch=x64 --out=out --icon=./icon.icns --overwrite",
+    "package": "npm run package:darwin",
+    "package:darwin": "electron-packager ./ --platform=darwin --arch=x64 --out=out --icon=./icon.icns --overwrite",
+    "package:linux": "electron-packager ./ --platform=linux --arch=x64 --out=out --icon=./icon.icns --overwrite",
     "upgrade-interactive": "npm-check -u"
   },
   "repository": {

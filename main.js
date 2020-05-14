@@ -8,7 +8,11 @@ let tray = undefined
 let window = undefined
 
 // Don't show the app in the doc
-app.dock.hide()
+try {
+  app.dock.hide()
+} catch(err) {
+  console.log(`Couldn't hide from the Dock... Perhaps there isn't one. Meh, we tried`)
+}
 
 app.on('ready', () => {
   createTray()
