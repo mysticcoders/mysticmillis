@@ -4,6 +4,8 @@ A tool to convert between millisecond time (epoch time) and your local time. Has
 
 Rapidly built by the team at [Mystic Coders](https://mysticcoders.com).
 
+![](assets/mystic_logo.png)
+
 Built with [Electron](http://electron.atom.io) and [photon](http://photonkit.com).
 
 ## Running
