@@ -1,5 +1,9 @@
 # Mystic Millis
 
+A tool to convert between millisecond time (epoch time) and your local time. Has various mechanisms for copying and hopefully generally being useful for the few among us who deal in milliseconds constantly.
+
+Rapidly built by the team at [Mystic Coders](https://mysticcoders.com).
+
 Built with [Electron](http://electron.atom.io) and [photon](http://photonkit.com).
 
 ## Running
