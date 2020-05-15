@@ -1,6 +1,19 @@
 {
   "name": "mysticmillis",
-  "productName": "Mystic Millis",
+  "build": {
+    "appId": "com.mysticcoders.mysticmillis",
+    "productName": "Mystic Millis",
+    "mac": {
+      "category": "public.app-category.developer-tools"
+    },
+    "dmg": {
+      "icon": false
+    },
+    "linux": {
+      "target": ["AppImage"],
+      "category": "Development"
+    }
+  },
   "version": "1.0.0",
   "main": "main.js",
   "license": "ISC",
@@ -8,6 +21,9 @@
   "scripts": {
     "start": "electron .",
     "package": "npm run package:darwin",
+    "postinstall": "electron-builder install-app-deps",
+    "build": "electron-builder --mac --windows --linux",
+    "release": "electron-builder --mac --windows --linux --publish always",
     "package:darwin": "electron-packager ./ --platform=darwin --arch=x64 --out=out --icon=./icon.icns --overwrite",
     "package:linux": "electron-packager ./ --platform=linux --arch=x64 --out=out --icon=./icon.icns --overwrite",
     "upgrade-interactive": "npm-check -u"
@@ -21,6 +37,7 @@
   },
   "homepage": "https://github.com/mysticcoders/mysticmillis#readme",
   "devDependencies": {
+    "electron-builder": "^22.6.0",
     "electron-packager": "^14.2.1",
     "electron-prebuilt": "^1.2.7"
   },
