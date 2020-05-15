@@ -22,8 +22,8 @@
     "start": "electron .",
     "package": "npm run package:darwin",
     "postinstall": "electron-builder install-app-deps",
-    "build": "electron-builder --mac --windows --linux",
-    "release": "electron-builder --mac --windows --linux --publish always",
+    "build:local": "electron-builder --mac --windows --linux",
+    "release:local": "electron-builder --mac --windows --linux --publish always",
     "package:darwin": "electron-packager ./ --platform=darwin --arch=x64 --out=out --icon=./icon.icns --overwrite",
     "package:linux": "electron-packager ./ --platform=linux --arch=x64 --out=out --icon=./icon.icns --overwrite",
     "upgrade-interactive": "npm-check -u"
