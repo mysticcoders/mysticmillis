@@ -1,10 +1,13 @@
 {
   "name": "mysticmillis",
+  "description": "Mystic Millis is an application designed to take the pain out of finding out what time it is in epoch millisecond time and convert",
   "build": {
     "appId": "com.mysticcoders.mysticmillis",
     "productName": "Mystic Millis",
     "mac": {
       "category": "public.app-category.developer-tools",
+			"entitlements": "./build/entitlements.mac.plist",
+			"entitlementsInherit": "./build/entitlements.mac.plist",
       "hardenedRuntime": true
     },
     "dmg": {
