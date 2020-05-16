@@ -4,7 +4,8 @@
     "appId": "com.mysticcoders.mysticmillis",
     "productName": "Mystic Millis",
     "mac": {
-      "category": "public.app-category.developer-tools"
+      "category": "public.app-category.developer-tools",
+      "hardenedRuntime": true
     },
     "dmg": {
       "icon": false
@@ -14,7 +15,8 @@
         "AppImage"
       ],
       "category": "Development"
-    }
+    },
+    "afterSign": "electron-builder-notarize"
   },
   "version": "1.0.0",
   "main": "main.js",
